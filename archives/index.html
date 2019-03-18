@@ -132,7 +132,12 @@
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?7b8bfba03314b4da8a7388161d57ae3c";
+      var host = window.location.host;
+      if(host.endsWith("gitee.io")){
+	hm.src = "https://hm.baidu.com/hm.js?b277b877e634ee9fae16a6d24bfbc186";
+      }else{
+	hm.src = "https://hm.baidu.com/hm.js?7b8bfba03314b4da8a7388161d57ae3c";
+      }
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
@@ -357,7 +362,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-author-name" itemprop="name">俱往矣</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
@@ -422,7 +427,7 @@
   <span class="with-love">
     <i class="fa fa-snowflake-o"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder"></span>
+  <span class="author" itemprop="copyrightHolder">俱往矣</span>
 
   
 </div>
