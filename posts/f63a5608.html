@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="System Model $$ Y=XH+N $$ 其中 $Y\in \mathbb{C}^{m \times 1}$ 表示接收符号；$H\in \mathbb{C}^{n \times 1}$ 表示信道冲击响应；$X\in \mathbb{C}^{m \times n}$ 表示发送符号，即导频，其元素 $x_{ij}$ 服从$CN(0,\sigma_x^2)$；$N\in \mathbb{C}^">
+<meta name="description" content="System Model $$ Y=XH+N $$ 其中 $Y\in \mathbb{C}^{m \times 1}$ 表示接收符号；$H\in \mathbb{C}^{n \times 1}$ 表示信道冲击响应，其元素 $x_{ij}$ 服从$CN(0,\sigma_h^2)$；$X\in \mathbb{C}^{m \times n}$ 表示发送符号，即导频；$N\in \mathbb{C}^">
 <meta name="keywords" content="信道估计">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LS和LMMSE信道估计">
 <meta property="og:url" content="http://yoursite.com/posts/f63a5608.html">
 <meta property="og:site_name" content="MYFUTURE">
-<meta property="og:description" content="System Model $$ Y=XH+N $$ 其中 $Y\in \mathbb{C}^{m \times 1}$ 表示接收符号；$H\in \mathbb{C}^{n \times 1}$ 表示信道冲击响应；$X\in \mathbb{C}^{m \times n}$ 表示发送符号，即导频，其元素 $x_{ij}$ 服从$CN(0,\sigma_x^2)$；$N\in \mathbb{C}^">
+<meta property="og:description" content="System Model $$ Y=XH+N $$ 其中 $Y\in \mathbb{C}^{m \times 1}$ 表示接收符号；$H\in \mathbb{C}^{n \times 1}$ 表示信道冲击响应，其元素 $x_{ij}$ 服从$CN(0,\sigma_h^2)$；$X\in \mathbb{C}^{m \times n}$ 表示发送符号，即导频；$N\in \mathbb{C}^">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-18T12:46:35.165Z">
+<meta property="og:updated_time" content="2019-05-04T01:54:34.019Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LS和LMMSE信道估计">
-<meta name="twitter:description" content="System Model $$ Y=XH+N $$ 其中 $Y\in \mathbb{C}^{m \times 1}$ 表示接收符号；$H\in \mathbb{C}^{n \times 1}$ 表示信道冲击响应；$X\in \mathbb{C}^{m \times n}$ 表示发送符号，即导频，其元素 $x_{ij}$ 服从$CN(0,\sigma_x^2)$；$N\in \mathbb{C}^">
+<meta name="twitter:description" content="System Model $$ Y=XH+N $$ 其中 $Y\in \mathbb{C}^{m \times 1}$ 表示接收符号；$H\in \mathbb{C}^{n \times 1}$ 表示信道冲击响应，其元素 $x_{ij}$ 服从$CN(0,\sigma_h^2)$；$X\in \mathbb{C}^{m \times n}$ 表示发送符号，即导频；$N\in \mathbb{C}^">
 
 
 
@@ -311,7 +311,7 @@
 
       
         <h2 id="System-Model"><a href="#System-Model" class="headerlink" title="System Model"></a>System Model</h2><hr>
-<p>$$ Y=XH+N $$ 其中 $Y\in \mathbb{C}^{m \times 1}$ 表示接收符号；$H\in \mathbb{C}^{n \times 1}$ 表示信道冲击响应；$X\in \mathbb{C}^{m \times n}$ 表示发送符号，即导频，其元素 $x_{ij}$ 服从$CN(0,\sigma_x^2)$；$N\in \mathbb{C}^{m \times 1}$ 表示叠加在信道上的加性高斯白噪声，其元素 $n_{ij}$ 服从$CN(0,\sigma_n^2)$；$H$ 和 $N$ 相互独立。</p>
+<p>$$ Y=XH+N $$ 其中 $Y\in \mathbb{C}^{m \times 1}$ 表示接收符号；$H\in \mathbb{C}^{n \times 1}$ 表示信道冲击响应，其元素 $x_{ij}$ 服从$CN(0,\sigma_h^2)$；$X\in \mathbb{C}^{m \times n}$ 表示发送符号，即导频；$N\in \mathbb{C}^{m \times 1}$ 表示叠加在信道上的加性高斯白噪声，其元素 $n_{ij}$ 服从$CN(0,\sigma_n^2)$；$H$ 和 $N$ 相互独立。</p>
 <p>问题：</p>
 <ul>
 <li>根据接收符号 $Y$ 和导频 $X$ 估计 $H$，其估计值用 $\hat{H}$ 表示。</li>
@@ -330,7 +330,7 @@
 <li>对 $B$ 求偏导<br>$$<br>\begin{aligned}<br>\frac{\partial{MSE}}{\partial{B}}&amp;=\frac{\partial{E\left\lbrace(\hat{H}-H)^H(\hat{H}-H)\right\rbrace}}{\partial{B}}\\&amp;=E\left\lbrace\frac{\partial{\left\lbrace(\hat{H}-H)^H(\hat{H}-H)\right\rbrace}}{\partial{B}}\right\rbrace\\&amp;=E\left\lbrace2WY+2B-2H\right\rbrace\\&amp;=2W\overline{Y}+2B-2\overline{H}<br>\end{aligned}\tag{6}\label{BWeifen}<br>$$令 $\frac{\partial{MSE}}{\partial{B}}=0$，可得到 $$B=\overline{H}-W\overline{Y}\tag{7}\label{B}$$</li>
 <li>对 $W$ 求偏导，并将 $B$ 代入到表达式中<br>$$<br>\begin{aligned}<br>\frac{\partial{MSE}}{\partial{W}}&amp;=\frac{\partial{E\left\lbrace(\hat{H}-H)^H(\hat{H}-H)\right\rbrace}}{\partial{W}}\\&amp;=E\left\lbrace\frac{\partial{\left\lbrace(\hat{H}-H)^H(\hat{H}-H)\right\rbrace}}{\partial{W}}\right\rbrace\\&amp;=E\left\lbrace 2WYY^H+2BY^H-2HY^H \right\rbrace \\&amp;\overset{\eqref{B}}{=}E\left\lbrace 2W(YY^H-\overline{Y}Y^H)+2(\overline{H}-X)Y^H \right\rbrace \\<br>&amp;=  2W\left\lbrace E(YY^H)-E(\overline{Y}Y^H) \right\rbrace +2\overline{H}E(Y^H)-2E(HY^H) \\<br>&amp;= 2WC_{Y}-2C_{HY}<br>\end{aligned} \tag{8}<br>$$令 $\frac{\partial{MSE}}{\partial{W}}=0$，可得到<br>$$W=C_{HY}C_{Y}^{-1} \tag{9}\label{W}$$</li>
 </ul>
-<p>根据系统模型，在公式 $\eqref{BWeifen}$ - $\eqref{W}$ 中:<br>$$\begin{aligned}<br>\overline{Y}&amp;=E{Y}=A\overline{X}\\<br>C_Y&amp;=AC_HA^T+C_N \\<br>C_{HY}&amp;=C_XA^H<br>\end{aligned} \tag{10}<br>$$ $C_Y$ 表示 $Y$ 的自协方差矩阵，$C_{HY}$ 表示 $H$ 和 $Y$ 的互协方差矩阵。至此，可得到 $H$ 的估计值<br>$$<br>\begin{aligned}<br> \hat{H}&amp;=C_{HY}C_Y^{-1}(Y-\overline{Y})+\overline{H} \\<br> &amp;=C_HA^H(AC_HA^H+C_Z)^{-1}(Y-A\overline{H})+\overline{H}<br>\end{aligned} \tag{11}<br>$$</p>
+<p>根据系统模型，在公式 $\eqref{BWeifen}$ - $\eqref{W}$ 中:<br>$$\begin{aligned}<br>\overline{Y}&amp;=E{Y}=X\overline{H}\\<br>C_Y&amp;=XC_HX^H+C_N \\<br>C_{HY}&amp;=C_HX^H<br>\end{aligned} \tag{10}<br>$$ $C_Y$ 表示 $Y$ 的自协方差矩阵，$C_{HY}$ 表示 $H$ 和 $Y$ 的互协方差矩阵。至此，可得到 $H$ 的估计值<br>$$<br>\begin{aligned}<br> \hat{H}&amp;=C_{HY}C_Y^{-1}(Y-\overline{Y})+\overline{H} \\<br> &amp;=C_HX^H(XC_HX^H+C_Z)^{-1}(Y-X\overline{H})+\overline{H}<br>\end{aligned} \tag{11}<br>$$</p>
 
       
     </div>
@@ -357,22 +357,6 @@
       
       
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/posts/4a17b156.html" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
       
 
       
@@ -446,7 +430,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
